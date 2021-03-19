@@ -21,15 +21,48 @@ body {
 .text {
   background-color: #283e50;
   margin-top: -0.25rem;
+  flex-grow: 2;
 }
 
 img {
   display: block;
   width: 100%;
+  border-radius: 3% 3% 0 0;
 }
 
 p {
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 1rem;
+}
+
+.tlacitka {
+  display: block;
+  width: 100%;
+}
+
+.prvni {
+  background-color: #1fcca4;
+  border-bottom: black 0.1rem solid;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.druhy {
+  background-color: #0197f6;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.prvni:hover {
+  background-color: #1cbb96;
+}
+
+.druhy:hover {
+  background-color: #0090e9;
 }
