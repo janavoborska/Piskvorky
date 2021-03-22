@@ -1,9 +1,14 @@
-* {
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 h1 {
   font-family: Lobster, cursive;
+  padding-top: 1rem;
 }
 
 body {
@@ -14,10 +19,9 @@ body {
 }
 
 .main {
-  width: calc(100% / 3);
+  max-width: 350px;
   text-align: center;
   position: relative;
-  margin-left: calc(100% / 3.3);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
