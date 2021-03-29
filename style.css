@@ -90,3 +90,7 @@ a {
 .main.pravidla {
   min-width: 500px;
 }
+
+ol li::marker {
+  margin-right: 100px;
+}
