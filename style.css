@@ -15,7 +15,7 @@ body {
   background: linear-gradient(#615dad, #ffc8da);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 1000px;
+  /*height: 1000px;*/
 }
 
 .main {
@@ -36,7 +36,7 @@ body {
   flex-grow: 2;
 }
 
-img {
+img.obrazek {
   display: block;
   width: 100%;
   border-radius: 3% 3% 0 0;
@@ -90,14 +90,37 @@ a {
 
 .main.pravidla {
   line-height: 1.5;
+  background-color: #283e50;
+  max-width: 350px;
 }
 
 .kolecko,
 .krizek {
-  width: 15px;
-  height: 15px;
+  width: 1em;
+  height: 1em;
   filter: invert(95%);
   display: inline;
+}
+
+.ukazky img {
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 0;
+  padding-top: 30px;
+}
+
+.ukazky figcaption {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  font: italic;
+  padding-top: 0;
+  text-align: center;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.sesty_obrazek {
+  padding-bottom: 30px;
 }
 
 /*
