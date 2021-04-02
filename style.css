@@ -126,8 +126,6 @@ a {
 @media screen and (min-width: 640px) {
   .main.pravidla {
     max-width: 80%;
-    line-height: 1.5;
-    background-color: #283e50;
   }
 
   .ukazky {
@@ -136,6 +134,12 @@ a {
   }
   figure {
     width: 50%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .main.pravidla {
+    max-width: 40%;
   }
 }
 
