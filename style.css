@@ -81,6 +81,7 @@ a {
 
 .seznam {
   font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
 }
 .seznam li {
   margin-left: 40px;
@@ -88,9 +89,23 @@ a {
 }
 
 .main.pravidla {
-  min-width: 500px;
+  line-height: 1.5;
 }
 
+.kolecko,
+.krizek {
+  width: 15px;
+  height: 15px;
+  filter: invert(95%);
+  display: inline;
+}
+
+/*
 ol li::marker {
   margin-right: 100px;
 }
+
+li {
+  text-indent: 10px;
+}
+*/
