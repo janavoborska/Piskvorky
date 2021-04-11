@@ -166,6 +166,10 @@ a {
   margin-right: 0.5rem;
 }
 
+.druhy.ikonka {
+  margin-right: 0;
+}
+
 .ikonky {
   display: flex;
 }
