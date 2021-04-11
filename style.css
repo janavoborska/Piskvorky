@@ -202,9 +202,15 @@ a {
 
 .prvni_radka,
 .druha_radka,
-.treti_radka {
-  display: block;
-  margin: 0;
+.treti_radka,
+.ctvrta_radka,
+.pata_radka,
+.sesta_radka,
+.sedma_radka,
+.osma_radka,
+.devata_radka,
+.desata_radka {
+  display: flex;
 }
 
 .hra h1 {
