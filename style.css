@@ -201,8 +201,8 @@ a {
 
 .policko {
   width: 10%;
-  height: 2rem;
-  background: #ffc8da;
+  height: 12vmin;
+  opacity: 60%;
   border: 2px black solid;
   border-right: none;
   border-bottom: none;
@@ -227,8 +227,9 @@ a {
   padding-top: 0;
 }
 
-button.policko:hover {
-  background-color: #fcdde7;
+button.policko:hover,
+button.policko:focus {
+  filter: brightness(200%);
 }
 
 /*
