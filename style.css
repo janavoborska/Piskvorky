@@ -149,6 +149,9 @@ a {
 
 .main.hra {
   max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hraje {
@@ -188,6 +191,8 @@ a {
 .hraci_plocha {
   margin-left: 3rem;
   margin-right: 3rem;
+  width: 80vmin;
+  position: center;
 }
 
 .hraci_plan {
@@ -200,8 +205,8 @@ a {
 }
 
 .policko {
-  width: 10%;
-  height: 12vmin;
+  width: 8vmin;
+  height: 8vmin;
   opacity: 60%;
   border: 2px black solid;
   border-right: none;
