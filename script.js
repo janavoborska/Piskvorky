@@ -3,18 +3,54 @@ console.log('funguju');
 let kdoNaTahu = 'circle';
 console.log(kdoNaTahu);
 
-const buttonElm = document.querySelector('button');
+//const buttonElm = document.querySelectorAll('.policko');
+//console.log(buttonElm); je to pole - musim proiterovat for cyklem
 
-buttonElm.addEventListener('click', () => {
-  if (kdoNaTahu === 'circle') {
-    buttonElm.classList.add('board__field--circle');
-  } else if (kdoNaTahu === 'cross') {
-    buttonElm.classList.add('board__field--cross');
-  }
+const polozky = document.querySelectorAll('.policko');
+
+for (let i = 0; i < polozky.length; i++) {
+  // Tady můžeš dělat s každou položkou co chceš. Třeba jim všem přidat event listener
+  polozky[i].addEventListener('click', () => {
+    if (kdoNaTahu === 'circle') {
+      polozky[i].classList.add('board__field--circle');
+      polozky[i].classList.add('obsazeno');
+      document.querySelector('.hrac').src = 'cross.svg';
+      kdoNaTahu = 'cross';
+    } else if (kdoNaTahu === 'cross') {
+      polozky[i].classList.add('board__field--cross');
+      polozky[i].classList.add('obsazeno');
+      document.querySelector('.hrac').src = 'circle.svg';
+      kdoNaTahu = 'circle';
+    }
+  });
+}
+const obsazeno = document.querySelectorAll('.obsazeno');
+
+for (let i = 0; i < polozky.length; i++) {
+  polozky[i].addEventListener('click', () => {
+    if (kdoNaTahu === 'circle') {
+      kdoNaTahu = 'circle';
+    } else if (kdoNaTahu === 'cross') {
+      kdoNaTahu = 'cross';
+    }
+  });
+}
+
+/*
+
+Nereaguj, pokud v kliknutém políčku už je nějaký symbol.
+
+document.querySelectorAll('.hraci-pole__btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    if (kdoJeNaTahu === 'circle') {
+      btn.classList.add('board__field--circle');
+      document.querySelector('.ikona-hrac').src = 'obrazky/circle.svg';
+      kdoJeNaTahu = 'cross';
+    } else {
+      btn.classList.add('board__field--cross');
+      document.querySelector('.ikona-hrac').src = 'obrazky/cross.svg';
+      kdoJeNaTahu = 'circle';
+    }
+  });
 });
-
-/*Pomocí posluchače událostí po kliknutí na políčko:
-
-Přidej políčku příslušnout třídu podle toho, kdo je zrovna na tahu. Například board__field--circle, resp. board__field--cross.
-
-Nastyluj políčka tak, aby nezobrazovala nic nebo kolečka a křížky podle tříd z předchozího kroku.*/
+*/
