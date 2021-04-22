@@ -10,6 +10,7 @@ const polozky = document.querySelectorAll('.policko');
 
 for (let i = 0; i < polozky.length; i++) {
   // Tady můžeš dělat s každou položkou co chceš. Třeba jim všem přidat event listener
+
   polozky[i].addEventListener('click', () => {
     if (kdoNaTahu === 'circle') {
       polozky[i].classList.add('board__field--circle');
@@ -24,10 +25,12 @@ for (let i = 0; i < polozky.length; i++) {
     }
   });
 }
+
 const obsazeno = document.querySelectorAll('.obsazeno');
 
 for (let i = 0; i < polozky.length; i++) {
   polozky[i].addEventListener('click', () => {
+    polozky[i].disabled = true;
     if (kdoNaTahu === 'circle') {
       kdoNaTahu = 'circle';
     } else if (kdoNaTahu === 'cross') {
@@ -40,17 +43,7 @@ for (let i = 0; i < polozky.length; i++) {
 
 Nereaguj, pokud v kliknutém políčku už je nějaký symbol.
 
-document.querySelectorAll('.hraci-pole__btn').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    if (kdoJeNaTahu === 'circle') {
-      btn.classList.add('board__field--circle');
-      document.querySelector('.ikona-hrac').src = 'obrazky/circle.svg';
-      kdoJeNaTahu = 'cross';
-    } else {
-      btn.classList.add('board__field--cross');
-      document.querySelector('.ikona-hrac').src = 'obrazky/cross.svg';
-      kdoJeNaTahu = 'circle';
-    }
-  });
-});
+Pomocí animací přidej symbolům efekt postupného zvětšení. V náhledu je animace zpomalená z času 0.15s na 0.45s, aby bylo lépe vidět, jak má vypadat. Ve výsledku použij kratší čas.
+
+
 */

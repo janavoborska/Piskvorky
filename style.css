@@ -257,6 +257,9 @@ button.policko:focus {
   background-position: center;
 }
 
+.obsazeno {
+}
+
 /*
 background-image: image('circle.svg');
 ol li::marker {
@@ -266,4 +269,4 @@ ol li::marker {
 li {
   text-indent: 10px;
 }
-*/
+*/ ;
