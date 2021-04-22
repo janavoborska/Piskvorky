@@ -237,7 +237,24 @@ button.policko:focus {
   filter: brightness(200%);
 }
 
+.board__field--circle {
+  background-color: #ffffffaa;
+  background-image: url('circle.svg');
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center;
+}
+
+.board__field--cross {
+  background-color: #ffffffaa;
+  background-image: url('cross.svg');
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center;
+}
+
 /*
+background-image: image('circle.svg');
 ol li::marker {
   margin-right: 100px;
 }
