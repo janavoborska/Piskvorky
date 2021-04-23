@@ -258,6 +258,17 @@ button.policko:focus {
 }
 
 .obsazeno {
+  animation-name: gradual-growth;
+  animation-duration: 0.15s;
+}
+
+@keyframes gradual-growth {
+  0% {
+    background-size: 0%;
+  }
+  100% {
+    background-size: 65%;
+  }
 }
 
 /*

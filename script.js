@@ -31,17 +31,10 @@ const obsazeno = document.querySelectorAll('.obsazeno');
 for (let i = 0; i < polozky.length; i++) {
   polozky[i].addEventListener('click', () => {
     polozky[i].disabled = true;
-    if (kdoNaTahu === 'circle') {
-      kdoNaTahu = 'circle';
-    } else if (kdoNaTahu === 'cross') {
-      kdoNaTahu = 'cross';
-    }
   });
 }
 
 /*
-
-Nereaguj, pokud v kliknutém políčku už je nějaký symbol.
 
 Pomocí animací přidej symbolům efekt postupného zvětšení. V náhledu je animace zpomalená z času 0.15s na 0.45s, aby bylo lépe vidět, jak má vypadat. Ve výsledku použij kratší čas.
 
