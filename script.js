@@ -53,11 +53,11 @@ console.log(getSymbol(polozky[1]));
 const boardSize = 10; // 10x10
 //to jsou moje polozky, const fields = document.querySelectorAll('.policko');
 
-for (let i = 0; i < polozky.length; i++) {
+polozky.forEach((item) => {
   const getField = (row, column) => {
-    polozky[i][row * boardSize + column];
+    polozky[row * boardSize + column];
   };
-}
+});
 
 /*
 
