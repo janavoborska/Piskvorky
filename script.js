@@ -36,29 +36,94 @@ for (let i = 0; i < polozky.length; i++) {
   });
 }
 
-for (let i = 0; i < polozky.length; i++) {
-  const getSymbol = (polozky) => {
-    if (polozky[i].classList.contains('board__field--cross')) {
-      return 'cross';
-    } else if (polozky[i].classList.contains('board__field--circle')) {
-      return 'circle';
-    } else {
-      return 'undefined';
-    }
+//let polozka = polozky.forEach((item) => {
+//   console.log(item);
+// return item;
+//});
+
+const getSymbol = (polozka) => {
+  if (polozka.classList.contains('board__field--cross')) {
+    return 'cross';
+  } else if (polozka.classList.contains('board__field--circle')) {
+    return 'circle';
+  } else {
+    return 'undefined';
+  }
+};
+
+const boardSize = 10;
+const getField = (row, column) => {
+  polozka[row * boardSize + column];
+};
+
+const getPosition = (polozka) => {
+  let polozkaIndex = 0;
+  while (polozkaIndex < polozky.length && polozka !== polozky[polozkaIndex]) {
+    polozkaIndex++;
+  }
+
+  return {
+    row: Math.floor(polozkaIndex / boardSize),
+    column: polozkaIndex % boardSize,
   };
-}
+};
 
-console.log(getSymbol(polozky[1]));
+const symbolsToWin = 5;
+const isWinningMove = (polozka) => {
+  const origin = getPosition(polozka);
+  const symbol = getSymbol(polozka);
 
-const boardSize = 10; // 10x10
-//to jsou moje polozky, const fields = document.querySelectorAll('.policko');
+  let i;
 
-polozky.forEach((item) => {
-  const getField = (row, column) => {
-    polozky[row * boardSize + column];
-  };
-});
+  let inRow = 1; // Jednička pro právě vybrané políčko
+  // Koukni doleva
+  i = origin.column;
+  while (i > 0 && symbol === getSymbol(getField(origin.row, i - 1))) {
+    inRow++;
+    i--;
+  }
 
-/*
+  // Koukni doprava
+  i = origin.column;
+  while (
+    i < boardSize - 1 &&
+    symbol === getSymbol(getField(origin.row, i + 1))
+  ) {
+    inRow++;
+    i++;
+  }
 
-*/
+  if (inRow >= symbolsToWin) {
+    console.log('vyhrál');
+    return true;
+  }
+
+  let inColumn = 1;
+  // Koukni nahoru
+  i = origin.row;
+  while (i > 0 && symbol === getSymbol(getField(i - 1, origin.column))) {
+    inColumn++;
+    i--;
+  }
+
+  // Koukni dolu
+  i = origin.row;
+  while (
+    i < boardSize - 1 &&
+    symbol === getSymbol(getField(i + 1, origin.column))
+  ) {
+    inColumn++;
+    i++;
+  }
+
+  if (inColumn >= symbolsToWin) {
+    console.log('vyhrál');
+    return true;
+  }
+
+  console.log('nic');
+  return false;
+};
+
+// for (let i = 0; i < polozky.length; i++) {
+// polozka[i].addEventListener('click', isWinningMove);
