@@ -10,21 +10,31 @@ const polozky = document.querySelectorAll('.policko');
 console.log(polozky);
 console.log(polozky[3]);
 
+const posluchac = (i) => {
+  if (kdoNaTahu === 'circle') {
+    polozky[i].classList.add('board__field--circle');
+    polozky[i].classList.add('obsazeno');
+    document.querySelector('.hrac').src = 'cross.svg';
+    kdoNaTahu = 'cross';
+  } else if (kdoNaTahu === 'cross') {
+    polozky[i].classList.add('board__field--cross');
+    polozky[i].classList.add('obsazeno');
+    document.querySelector('.hrac').src = 'circle.svg';
+    kdoNaTahu = 'circle';
+  }
+
+  if (isWinningMove(polozky[i])) {
+    if (getSymbol(polozky[i]) === 'circle') {
+      alert('vyhral kolecko');
+    } else alert('vyhral krizek');
+  }
+};
+
 for (let i = 0; i < polozky.length; i++) {
   // Tady můžeš dělat s každou položkou co chceš. Třeba jim všem přidat event listener
 
   polozky[i].addEventListener('click', () => {
-    if (kdoNaTahu === 'circle') {
-      polozky[i].classList.add('board__field--circle');
-      polozky[i].classList.add('obsazeno');
-      document.querySelector('.hrac').src = 'cross.svg';
-      kdoNaTahu = 'cross';
-    } else if (kdoNaTahu === 'cross') {
-      polozky[i].classList.add('board__field--cross');
-      polozky[i].classList.add('obsazeno');
-      document.querySelector('.hrac').src = 'circle.svg';
-      kdoNaTahu = 'circle';
-    }
+    posluchac(i);
   });
 }
 
@@ -36,10 +46,16 @@ for (let i = 0; i < polozky.length; i++) {
   });
 }
 
-//let polozka = polozky.forEach((item) => {
-//   console.log(item);
-// return item;
-//});
+let pocitadloKliku = 0;
+const uzivatelKliknul = () => {
+  pocitadloKliku += 1;
+  console.log(`Uživatel kliknul na tlačítko už ${pocitadloKliku}×.`);
+};
+
+//const button = document.querySelector('button');
+for (let i = 0; i < polozky.length; i++) {
+  polozky[i].addEventListener('click', uzivatelKliknul);
+}
 
 const getSymbol = (polozka) => {
   if (polozka.classList.contains('board__field--cross')) {
@@ -50,11 +66,14 @@ const getSymbol = (polozka) => {
     return 'undefined';
   }
 };
+console.log(getSymbol(polozky[0]));
 
 const boardSize = 10;
 const getField = (row, column) => {
-  polozka[row * boardSize + column];
+  return polozky[row * boardSize + column];
 };
+
+console.log(getField(0, 9));
 
 const getPosition = (polozka) => {
   let polozkaIndex = 0;
@@ -67,6 +86,7 @@ const getPosition = (polozka) => {
     column: polozkaIndex % boardSize,
   };
 };
+console.log(getPosition(polozky[90]));
 
 const symbolsToWin = 5;
 const isWinningMove = (polozka) => {
